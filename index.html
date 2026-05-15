@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nabiswa James | Software Engineer</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playball&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
@@ -73,7 +77,7 @@ header{
 }
 .logo{font-family:var(--heading-font);font-size:22px;color:var(--accent2);letter-spacing:.3px}
 
-/* ── NAV — underline grows BOTTOM TO TOP ── */
+/* ── NAV ── */
 nav{display:flex;align-items:center;gap:4px}
 nav a{
   padding:6px 13px 4px;
@@ -83,7 +87,6 @@ nav a{
   position:relative;background:none;
   transition:color .22s;
 }
-/* underline sits at bottom, grows upward via scaleY */
 nav a::after{
   content:'';
   position:absolute;
@@ -107,7 +110,7 @@ nav a:hover::after,nav a.active::after{transform:scaleY(1)}
 }
 .theme-btn:hover{border-color:var(--accent);color:var(--accent)}
 
-/* ── HAMBURGER (mobile only) ── */
+/* ── HAMBURGER ── */
 .ham{
   display:none;
   background:none;border:none;
@@ -166,29 +169,29 @@ nav a:hover::after,nav a.active::after{transform:scaleY(1)}
   letter-spacing:1px;text-transform:uppercase;margin-bottom:14px;
   display:flex;align-items:center;gap:8px;
 }
-/* removed the ::before line */
 .hero-name{font-family:var(--heading-font);font-size:clamp(38px,5vw,64px);line-height:1.08;margin-bottom:10px;color:var(--text)}
 .hero-roles{font-family:var(--serif);font-style:italic;font-size:clamp(14px,1.8vw,18px);color:var(--accent2);margin-bottom:20px;line-height:1.6}
 .hero-desc{font-size:14px;color:var(--text2);line-height:1.8;max-width:440px;margin-bottom:28px}
 .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn{padding:10px 22px;border-radius:6px;font-size:13.5px;font-weight:600;font-family:var(--body-font);cursor:pointer;border:none;display:inline-flex;align-items:center;gap:7px;transition:.25s}
+/* NO box-shadow/glow on any button */
+.btn{padding:10px 22px;border-radius:6px;font-size:13.5px;font-weight:600;font-family:var(--body-font);cursor:pointer;border:none;display:inline-flex;align-items:center;gap:7px;transition:background .25s,transform .25s,border-color .25s,color .25s;box-shadow:none!important;}
 .btn-wa{background:#25D366;color:#fff}
 .btn-wa:hover{background:#1da851;transform:translateY(-2px)}
 .btn-ghost{background:transparent;color:var(--text);border:1.5px solid var(--border)}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 .socials{display:flex;gap:10px;margin-top:24px}
-.socials a{width:36px;height:36px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:15px;transition:.25s}
+.socials a{width:36px;height:36px;border:1px solid var(--border);border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:15px;transition:.25s;box-shadow:none!important;}
 .socials a:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px)}
 
-/* ── PROFILE — round circle ── */
+/* ── PROFILE ── */
 .hero-right{flex:0 0 260px;display:flex;flex-direction:column;align-items:center;gap:24px}
 .profile-frame{
   width:220px;height:220px;
-  border-radius:50%;              /* full circle */
+  border-radius:50%;
   border:3px solid var(--accent);
   overflow:hidden;
   background:var(--card2);
-  box-shadow:0 0 0 6px rgba(201,123,58,.15);
+  /* NO box-shadow/glow */
 }
 .profile-frame img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .stat-row{display:flex;gap:24px}
@@ -200,7 +203,6 @@ nav a:hover::after,nav a.active::after{transform:scaleY(1)}
 section{padding:80px 7%;position:relative;z-index:1}
 .alt-bg{background:var(--bg2)}
 
-/* sec-label — NO line/circle decorators */
 .sec-label{
   font-family:'Poppins',sans-serif;font-size:12px;
   letter-spacing:1px;text-transform:uppercase;
@@ -214,86 +216,68 @@ section{padding:80px 7%;position:relative;z-index:1}
 .about-img{
   width:100%;height:700px;object-fit:cover;object-position:center top;
   border-radius:6px;
-  /* start hidden, slides up on reveal */
   opacity:0;transform:translateY(40px);
   transition:opacity .6s ease,transform .6s ease;
 }
-.about-img.show{opacity:1;transform:translateY(3)}
+.about-img.show{opacity:1;transform:translateY(3px)}
 .info-list{display:flex;flex-direction:column;gap:10px;margin-top:28px}
 .info-row{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:transparent;border:none;border-radius:6px;font-size:13.5px}
 .info-row i{color:var(--accent);font-size:15px;margin-top:1px;flex-shrink:0}
 .info-row span,.info-row a{color:var(--text2);line-height:1.4}
 .info-row a:hover{color:var(--accent)}
 
-/* ── SKILLS — horizontal marquee, no cage ── */
+/* ── SKILLS MARQUEE ── */
 .skills-marquee-wrap{overflow:hidden;padding:10px 0;position:relative}
 .skills-marquee-wrap::before,.skills-marquee-wrap::after{
-  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;
-  pointer-events:none;
+  content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;
 }
 .skills-marquee-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent)}
 .skills-marquee-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent)}
 .alt-bg .skills-marquee-wrap::before{background:linear-gradient(to right,var(--bg2),transparent)}
 .alt-bg .skills-marquee-wrap::after{background:linear-gradient(to left,var(--bg2),transparent)}
-
 .skills-track{
   display:flex;gap:28px;
   animation:scrollTrack 28s linear infinite;
-  width:max-content;
-  padding:8px 0;
+  width:max-content;padding:8px 0;
 }
 .skills-track:hover{animation-play-state:paused}
-@keyframes scrollTrack{
-  0%{transform:translateX(0)}
-  100%{transform:translateX(-50%)}
-}
-
-.sk-pill{
-  display:flex;flex-direction:column;align-items:center;gap:8px;
-  flex-shrink:0;
-}
+@keyframes scrollTrack{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.sk-pill{display:flex;flex-direction:column;align-items:center;gap:8px;flex-shrink:0;}
 .sk-ico{
-  width:52px;height:52px;
-  border-radius:14px;
-  background:var(--card);
-  border:1px solid var(--border);
-  display:flex;align-items:center;justify-content:center;
-  font-size:22px;
-  transition:.25s;
+  width:52px;height:52px;border-radius:14px;
+  background:var(--card);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;font-size:22px;transition:.25s;
 }
 .sk-ico img{width:30px;height:30px;object-fit:contain}
 .sk-ico:hover{border-color:var(--accent);transform:translateY(-4px)}
 .sk-lbl{font-size:10px;color:var(--text2);font-family:'Poppins',sans-serif;letter-spacing:0;text-align:center}
-
-/* section sub-label for skill group */
 .skills-group-label{
   font-family:'Poppins',sans-serif;font-size:11px;letter-spacing:0.5px;
   text-transform:uppercase;color:var(--text2);
-  margin-bottom:14px;margin-top:30px;
-  opacity:.7;
+  margin-bottom:14px;margin-top:30px;opacity:.7;
 }
 
-/* ── PROJECTS — supplier-card hover style ── */
-.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr));gap:28px}
+/* ── PROJECTS ── */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:28px}
 .proj-card{
   background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;
   opacity:0;transform:translateY(30px);
-  transition:opacity .5s ease,transform .3s ease,border-color .3s,box-shadow .3s;
+  transition:opacity .5s ease,transform .3s ease,border-color .3s;
+  box-shadow:none!important;
 }
 .proj-card.show{opacity:1;transform:translateY(0)}
 .proj-card:hover{
-  transform:translateY(-10px) rotateZ(-1deg) scale(1.03);
-  box-shadow:0 15px 32px rgba(0,0,0,.35);
+  transform:translateY(-8px) rotateZ(-0.5deg) scale(1.02);
   border-color:var(--accent);
 }
-.proj-thumb{height:260px;background:var(--card2);position:relative;overflow:hidden}
-.proj-thumb iframe{width:100%;height:100%;border:none;pointer-events:none}
+.proj-thumb{height:220px;background:var(--card2);position:relative;overflow:hidden}
+.proj-thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s ease;}
+.proj-card:hover .proj-thumb img{transform:scale(1.04);}
 .proj-thumb-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--text2)}
-.proj-thumb-ph img{width:100%;height:100%;object-fit:cover}
 .proj-overlay{position:absolute;inset:0;background:rgba(33,15,4,.86);display:flex;align-items:center;justify-content:center;gap:10px;opacity:0;transition:.28s}
 body.light .proj-overlay{background:rgba(42,26,34,.82)}
 .proj-card:hover .proj-overlay{opacity:1}
-.proj-overlay a{padding:8px 18px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;font-family:var(--mono);transition:.2s}
+.proj-overlay a{padding:8px 18px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;font-weight:700;font-family:var(--mono);transition:.2s;box-shadow:none!important;}
 .proj-overlay a:hover{background:var(--accent2)}
 .proj-overlay a.ghost{background:transparent;border:1.5px solid rgba(255,255,255,.5);color:#fff}
 .proj-overlay a.ghost:hover{background:rgba(255,255,255,.12)}
@@ -303,14 +287,53 @@ body.light .proj-overlay{background:rgba(42,26,34,.82)}
 .proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px}
 .proj-btn{
   display:block;width:100%;padding:13px;
-  background:var(--navy, #1e3a5f);background:var(--card2);
+  background:var(--card2);
   color:var(--text);font-size:14px;font-weight:600;
   font-family:var(--body-font);text-align:center;
   border:1px solid var(--border);border-radius:6px;
-  transition:.25s;margin-top:auto;
+  transition:.25s;margin-top:auto;box-shadow:none!important;
 }
 .proj-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 .proj-tag{padding:3px 9px;background:var(--bg2);border:1px solid var(--border);border-radius:3px;font-size:11px;color:var(--text2);font-family:var(--mono);letter-spacing:.3px}
+
+/* ── PWA DOWNLOAD SECTION ── */
+.pwa-section{
+  padding:60px 7%;position:relative;z-index:1;
+  border-top:1px solid var(--border);
+}
+.pwa-inner{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+}
+.pwa-text .sec-label{margin-bottom:6px;}
+.pwa-text h2{font-family:var(--heading-font);font-size:clamp(22px,3vw,32px);color:var(--text);margin-bottom:14px;}
+.pwa-text p{color:var(--text2);font-size:14px;line-height:1.8;margin-bottom:24px;max-width:420px;}
+.pwa-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.pwa-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:11px 22px;border-radius:6px;
+  border:1.5px solid var(--border);
+  background:var(--card);
+  color:var(--text);font-family:var(--body-font);font-size:13.5px;font-weight:600;
+  transition:border-color .25s,background .25s,color .25s;
+  box-shadow:none!important;
+}
+.pwa-btn:hover{border-color:var(--accent);background:var(--card2);color:var(--accent2);}
+.pwa-btn i{font-size:18px;color:var(--accent);}
+.pwa-mockup{
+  background:var(--card);border:1px solid var(--border);border-radius:12px;
+  padding:28px 24px;display:flex;flex-direction:column;gap:14px;
+}
+.pwa-mockup-bar{display:flex;gap:6px;margin-bottom:6px;}
+.pwa-mockup-bar span{width:10px;height:10px;border-radius:50%;background:var(--border);}
+.pwa-mockup-bar span:nth-child(1){background:#c97b3a;}
+.pwa-mockup-bar span:nth-child(2){background:#e0965a;}
+.pwa-mockup-bar span:nth-child(3){background:#7a9a50;}
+.pwa-app-name{font-family:var(--heading-font);font-size:20px;color:var(--accent2);}
+.pwa-app-desc{font-size:13px;color:var(--text2);line-height:1.65;}
+.pwa-features{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:4px;}
+.pwa-features li{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--text2);}
+.pwa-features li i{color:var(--accent);font-size:12px;}
+.pwa-install-note{font-size:11.5px;color:var(--text2);font-family:var(--mono);margin-top:4px;opacity:.7;}
 
 /* ── EDUCATION ── */
 .edu-list{display:flex;flex-direction:column;gap:16px}
@@ -337,11 +360,16 @@ body.light .proj-overlay{background:rgba(42,26,34,.82)}
 
 /* ── CONTACT ── */
 .contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
-.contact-card{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--border);border-radius:6px;padding:18px 20px;transition:.25s;color:var(--text)}
+.contact-card{display:flex;align-items:center;gap:14px;background:transparent;border:none;border-radius:0;padding:18px 4px;transition:.25s;color:var(--text)}
 .contact-icon{width:42px;height:42px;background:transparent;border:none;border-radius:6px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:22px;flex-shrink:0}
 .contact-lbl{font-size:11.5px;color:var(--text2);margin-bottom:2px;font-family:var(--mono)}
 .contact-val{font-size:13.5px;font-weight:600}
-.contact-card{display:flex;align-items:center;gap:14px;background:transparent;border:none;border-radius:0;padding:18px 4px;transition:.25s;color:var(--text)}
+
+/* ── VIDEOS ── */
+#videos .video-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:10px;}
+#videos .video-wrap{border-radius:10px;overflow:hidden;border:1px solid var(--border);}
+#videos iframe{width:100%;height:220px;display:block;border:none;}
+
 /* ── FOOTER ── */
 footer.pf-footer{background:var(--card);border-top:1px solid var(--border);position:relative;z-index:1}
 .footer-inner{max-width:1100px;margin:0 auto;padding:44px 7% 0;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
@@ -353,7 +381,7 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
 .ft-col a:hover{color:var(--accent2)}
 .ft-col a i{width:14px;font-size:13px;color:var(--accent);flex-shrink:0}
 .ft-social{display:flex;gap:10px;margin-top:16px}
-.ft-social a{width:34px;height:34px;border-radius:6px;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:14px;margin-bottom:0;transition:.22s}
+.ft-social a{width:34px;height:34px;border-radius:6px;background:var(--card2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text2);font-size:14px;margin-bottom:0;transition:.22s;box-shadow:none!important;}
 .ft-social a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
 .footer-bottom{max-width:1100px;margin:36px auto 0;padding:20px 7%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .footer-bottom p{font-size:12px;color:var(--text2);font-family:var(--mono)}
@@ -365,8 +393,8 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
 /* ── RESPONSIVE ── */
 @media(max-width:768px){
   .ham{display:flex;align-items:center;justify-content:center;}
-  nav{ display:none; }          /* hide desktop nav on mobile */
-  .theme-btn{display:none}
+  nav{display:none;}
+  /* theme-btn VISIBLE on mobile — moved inside header controls */
   .hero{flex-direction:column;text-align:center;padding:100px 6% 50px;gap:20px}
   .hero-btns,.socials{justify-content:center}
   .hero-tag{justify-content:center}
@@ -375,6 +403,7 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
   .profile-frame{width:170px;height:170px}
   .footer-inner{grid-template-columns:1fr;gap:28px}
   .projects-grid{grid-template-columns:1fr}
+  .pwa-inner{grid-template-columns:1fr;gap:28px;}
 }
 </style>
 </head>
@@ -387,10 +416,8 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
   <div class="bg-circle c7"></div>
 </div>
 
-<!-- sidebar overlay -->
 <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
 
-<!-- mobile sidebar -->
 <div class="mobile-sidebar" id="mobileSidebar">
   <button class="sidebar-close" onclick="closeSidebar()"><i class="bi bi-x"></i></button>
   <a href="#home"       onclick="closeSidebar()">Home</a>
@@ -399,14 +426,14 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
   <a href="#projects"   onclick="closeSidebar()">Projects</a>
   <a href="#education"  onclick="closeSidebar()">Education</a>
   <a href="#experience" onclick="closeSidebar()">Experience</a>
-  <a href="#contact"    onclick="closeSidebar()">Contact</a>
   <a href="#videos"     onclick="closeSidebar()">Videos</a>
+  <a href="#download"   onclick="closeSidebar()">Download App</a>
+  <a href="#contact"    onclick="closeSidebar()">Contact</a>
 </div>
 
 <header>
   <div class="logo">Nabiswa James</div>
 
-  <!-- desktop nav -->
   <nav id="main-nav">
     <a href="#home">Home</a>
     <a href="#about">About</a>
@@ -415,30 +442,32 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
     <a href="#education">Education</a>
     <a href="#experience">Experience</a>
     <a href="#videos">Videos</a>
-<a href="#contact">Contact</a>
+    <a href="#download">App</a>
+    <a href="#contact">Contact</a>
   </nav>
 
+  <!-- theme button always visible; ham visible only on mobile via CSS -->
   <div style="display:flex;align-items:center;gap:10px;">
     <button class="theme-btn" onclick="toggleTheme()" id="theme-btn" title="Toggle theme">
       <i class="bi bi-sun" id="theme-icon"></i>
     </button>
-    <!-- hamburger — mobile only -->
-    <button class="ham d-md-none" onclick="openSidebar()">
+    <button class="ham" onclick="openSidebar()">
       <i class="bi bi-list"></i>
     </button>
   </div>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-left">
     <div class="hero-tag">Software Engineer</div>
     <h1 class="hero-name">Nabiswa James</h1>
     <div class="hero-roles">
-      Django Expert&nbsp;·&nbsp;s Frontend Designer &nbsp;·&nbsp; Digital Solutions Builder<br>
-      Co-founder, TingsTech Technology
+      Django Developer &nbsp;·&nbsp; Full-Stack Builder &nbsp;·&nbsp; Digital Solutions<br>
+      Co-founder, TingsTech Technology &nbsp;·&nbsp; Co-founder, Sorabingo
     </div>
     <p class="hero-desc">
-      Software Engineering  building modern web systems, database-driven platforms, and business solutions that actually work. Turning complex problems into clean, usable products.
+      Software Engineering student building modern web systems, database-driven platforms, and business solutions that actually work. Turning complex problems into clean, usable products.
     </p>
     <div class="hero-btns">
       <a href="https://wa.me/254792390205?text=Hello%20Engineer%2C%20I%20am%20interested%20in%20your%20services%20and%20would%20like%20to%20hire%20you."
@@ -457,7 +486,7 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
     <div class="profile-frame">
       <img src="profile2.jpg" alt="Nabiswa James"
            onerror="this.style.display='none';document.getElementById('ph').style.display='flex';">
-      <div class="profile-placeholder" id="ph" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
+      <div id="ph" style="display:none;width:100%;height:100%;align-items:center;justify-content:center;flex-direction:column;gap:8px;">
         <i class="bi bi-person-circle" style="font-size:64px;color:var(--accent);opacity:.5;"></i>
         <span style="font-family:var(--heading-font);font-size:14px;color:var(--text2);">Nabiswa James</span>
       </div>
@@ -470,6 +499,7 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="alt-bg">
   <div class="reveal">
     <div class="sec-label">About Me</div>
@@ -478,8 +508,8 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
   <div class="about-grid">
     <div>
       <div class="about-text reveal">
-        <p>I'm a dependable Software Engineer passion for building systems that solve real-world problems. I combine skills in technology, business, and customer service to deliver solutions that go beyond just code.</p>
-        <p>Through hands-on freelance development and co-founding TingsTech Technology, I've built the adaptability to thrive in any technical or operational environment. My speciality is Django crafting robust, production-ready web backends and full-stack systems.</p>
+        <p>I'm a dependable Software Engineer with a passion for building systems that solve real-world problems. I combine skills in technology, business, and customer service to deliver solutions that go beyond just code.</p>
+        <p>Through hands-on freelance development and co-founding TingsTech Technology and Sorabingo, I've built the adaptability to thrive in any technical or operational environment. My speciality is Django — crafting robust, production-ready web backends and full-stack systems.</p>
       </div>
       <div class="info-list reveal">
         <div class="info-row"><i class="bi bi-geo-alt"></i><span>Kitale, Trans Nzoia, Kenya</span></div>
@@ -489,47 +519,34 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <div class="info-row"><i class="bi bi-github"></i><a href="https://github.com/nabiswa-cmd" target="_blank">nabiswa-cmd</a></div>
       </div>
     </div>
-    <!-- About image slides up on scroll -->
-    <img src="sir.png" alt="Nabiswa James" class="about-img"
-         onerror="this.style.display='none'">
+    <img src="sir.png" alt="Nabiswa James" class="about-img" onerror="this.style.display='none'">
   </div>
 </section>
 
-<!-- ── SKILLS — horizontal scrolling marquee ── -->
+<!-- SKILLS -->
 <section id="skills">
   <div class="reveal"><div class="sec-label">What I Know</div><h2 class="sec-title">Skills & Tools</h2></div>
-
   <div class="skills-group-label reveal">Programming Languages</div>
-  <div class="skills-marquee-wrap reveal">
-    <div class="skills-track" id="track1"></div>
-  </div>
-
+  <div class="skills-marquee-wrap reveal"><div class="skills-track" id="track1"></div></div>
   <div class="skills-group-label reveal">Web Development</div>
-  <div class="skills-marquee-wrap reveal">
-    <div class="skills-track" id="track2"></div>
-  </div>
-
+  <div class="skills-marquee-wrap reveal"><div class="skills-track" id="track2"></div></div>
   <div class="skills-group-label reveal">Databases & Tools</div>
-  <div class="skills-marquee-wrap reveal">
-    <div class="skills-track" id="track3"></div>
-  </div>
-
+  <div class="skills-marquee-wrap reveal"><div class="skills-track" id="track3"></div></div>
   <div class="skills-group-label reveal">Business & Soft Skills</div>
-  <div class="skills-marquee-wrap reveal">
-    <div class="skills-track" id="track4"></div>
-  </div>
+  <div class="skills-marquee-wrap reveal"><div class="skills-track" id="track4"></div></div>
 </section>
 
+<!-- PROJECTS -->
 <section id="projects" class="alt-bg">
   <div class="reveal"><div class="sec-label">My Work</div><h2 class="sec-title">Projects</h2></div>
   <div class="projects-grid">
 
-    <div class="proj-card">
+    <!-- Each proj-thumb uses an <img> named after the project; fallback icon shown if image missing -->
+
+    <div class="proj-card reveal">
       <div class="proj-thumb">
-        <div class="proj-thumb-ph">
-          <img src="kijijigas.png" alt="KijijiGas" onerror="this.style.display='none'">
-          <i class="bi bi-fuel-pump-fill" style="font-size:40px;color:var(--accent);opacity:.35;display:none;"></i>
-        </div>
+        <img src="kijijigas.png" alt="KijijiGas"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-fuel-pump-fill\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>KijijiGas</span></div>';">
         <div class="proj-overlay">
           <a href="https://github.com/nabiswa-cmd/KijijiGas" target="_blank">View Code</a>
         </div>
@@ -542,12 +559,10 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
       </div>
     </div>
 
-    <div class="proj-card">
+    <div class="proj-card reveal">
       <div class="proj-thumb">
-        <div class="proj-thumb-ph" style="flex-direction:column;gap:10px;">
-          <i class="bi bi-building" style="font-size:40px;color:var(--accent);opacity:.35;"></i>
-          <span style="font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)">AzaniCompany</span>
-        </div>
+        <img src="azanicompany.png" alt="AzaniCompany"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-building\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>AzaniCompany</span></div>';">
         <div class="proj-overlay">
           <a href="https://github.com/nabiswa-cmd/AzaniCompany" target="_blank">View Code</a>
         </div>
@@ -556,12 +571,14 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <div class="proj-name">AzaniCompany</div>
         <div class="proj-desc">A fully-featured Django-based Database Management System for Azani Company, providing internet services and infrastructure to learning institutions in Kenya.</div>
         <div class="proj-tags"><span class="proj-tag">JavaScript</span><span class="proj-tag">Django</span><span class="proj-tag">PostgreSQL</span></div>
+        <a href="https://github.com/nabiswa-cmd/AzaniCompany" target="_blank" class="proj-btn">Check it out</a>
       </div>
     </div>
 
-    <div class="proj-card">
+    <div class="proj-card reveal">
       <div class="proj-thumb">
-        <iframe src="https://gadgetsoko.com/" title="GadgetSoko Live" loading="lazy" sandbox="allow-same-origin allow-scripts"></iframe>
+        <img src="gadgetsoko.png" alt="GadgetSoko"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-bag\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>GadgetSoko</span></div>';">
         <div class="proj-overlay">
           <a href="https://gadgetsoko.com/" target="_blank">Live Site</a>
           <a href="https://github.com/nabiswa-cmd/gadgetsoko" target="_blank" class="ghost">Code</a>
@@ -571,15 +588,14 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <div class="proj-name">GadgetSoko E-Commerce</div>
         <div class="proj-desc">A Kenyan e-commerce platform for electronics and gadgets. Integrates Safaricom M-Pesa as the primary payment method and Google authentication.</div>
         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">HTML</span><span class="proj-tag">M-Pesa API</span></div>
+        <a href="https://gadgetsoko.com/" target="_blank" class="proj-btn">Check it out</a>
       </div>
     </div>
 
-    <div class="proj-card">
+    <div class="proj-card reveal">
       <div class="proj-thumb">
-        <div class="proj-thumb-ph" style="flex-direction:column;gap:10px;">
-          <i class="bi bi-graph-up" style="font-size:40px;color:var(--accent);opacity:.35;"></i>
-          <span style="font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)">Gas Management</span>
-        </div>
+        <img src="gas-management.png" alt="Gas Management System"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-graph-up\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>Gas Management</span></div>';">
         <div class="proj-overlay">
           <a href="https://github.com/nabiswa-cmd/gas-management" target="_blank">View Code</a>
         </div>
@@ -588,15 +604,14 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <div class="proj-name">Gas Management System</div>
         <div class="proj-desc">Tracks gas stock, sales, and returns across multiple stations. Built with Flask and PostgreSQL — includes user login, live dashboards, and real-time stock updates.</div>
         <div class="proj-tags"><span class="proj-tag">Python</span><span class="proj-tag">Flask</span><span class="proj-tag">PostgreSQL</span></div>
+        <a href="https://github.com/nabiswa-cmd/gas-management" target="_blank" class="proj-btn">Check it out</a>
       </div>
     </div>
 
-    <div class="proj-card">
+    <div class="proj-card reveal">
       <div class="proj-thumb">
-        <div class="proj-thumb-ph" style="flex-direction:column;gap:10px;">
-          <i class="bi bi-scissors" style="font-size:40px;color:var(--accent);opacity:.35;"></i>
-          <span style="font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)">Wasafi Salon</span>
-        </div>
+        <img src="wasafi-salon.png" alt="Wasafi Salon"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-scissors\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>Wasafi Salon</span></div>';">
         <div class="proj-overlay">
           <a href="https://github.com/nabiswa-cmd/Wasafi_Salon" target="_blank">View Code</a>
         </div>
@@ -605,15 +620,14 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <div class="proj-name">Wasafi Beauty Salon</div>
         <div class="proj-desc">A full-featured salon management application for Wasafi Beauty Salon in Bomet Town, Kenya. Built with Django, Bootstrap 5, and PostgreSQL.</div>
         <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">Bootstrap 5</span><span class="proj-tag">PostgreSQL</span></div>
+        <a href="https://github.com/nabiswa-cmd/Wasafi_Salon" target="_blank" class="proj-btn">Check it out</a>
       </div>
     </div>
 
-    <div class="proj-card">
+    <div class="proj-card reveal">
       <div class="proj-thumb">
-        <div class="proj-thumb-ph" style="flex-direction:column;gap:10px;">
-          <i class="bi bi-fuel-pump-fill" style="font-size:40px;color:var(--accent);opacity:.35;"></i>
-          <span style="font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)">Kipsongo Gas</span>
-        </div>
+        <img src="kipsongo.png" alt="Kipsongo Gas"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-fuel-pump-fill\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>Kipsongo Gas</span></div>';">
         <div class="proj-overlay">
           <a href="https://github.com/nabiswa-cmd/kipsongo" target="_blank">View Code</a>
         </div>
@@ -622,46 +636,91 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <div class="proj-name">Kipsongo Gas System</div>
         <div class="proj-desc">Web-based application managing gas sales, stock monitoring, customer transactions, and returns for a specific station. Automates operational workflows end-to-end.</div>
         <div class="proj-tags"><span class="proj-tag">HTML</span><span class="proj-tag">Python</span><span class="proj-tag">SQLite</span></div>
+        <a href="https://github.com/nabiswa-cmd/kipsongo" target="_blank" class="proj-btn">Check it out</a>
+      </div>
+    </div>
+
+    <div class="proj-card reveal">
+      <div class="proj-thumb">
+        <img src="in16hub.png" alt="IN16HUB"
+             onerror="this.src='';this.parentElement.innerHTML='<div class=proj-thumb-ph><i class=\'bi bi-mortarboard-fill\' style=\'font-size:40px;color:var(--accent);opacity:.35;\'></i><span style=\'font-size:11px;font-family:var(--mono);letter-spacing:1px;color:var(--text2)\'>IN16HUB</span></div>';">
+        <div class="proj-overlay">
+          <a href="https://in16-hub.vercel.app/" target="_blank">Live Site</a>
+          <a href="https://github.com/nabiswa-cmd" target="_blank" class="ghost">Code</a>
+        </div>
+      </div>
+      <div class="proj-body">
+        <div class="proj-name">IN16HUB</div>
+        <div class="proj-desc">Built for Engineers, by Engineers. A centralized platform that helps engineering students manage their studies effectively — working alongside Class Representatives Japhet and Venessa to keep students organized and connected.</div>
+        <div class="proj-tags"><span class="proj-tag">Django</span><span class="proj-tag">JavaScript</span><span class="proj-tag">PostgreSQL</span></div>
+        <a href="https://in16-hub.vercel.app/" target="_blank" class="proj-btn">Check it out</a>
       </div>
     </div>
 
   </div>
 </section>
 
+<!-- VIDEOS -->
 <section id="videos">
   <div class="reveal"><div class="sec-label">Watch & Learn</div><h2 class="sec-title">Featured Videos</h2></div>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:10px;">
-
-    <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-      <iframe width="100%" height="220"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1"
+  <div class="video-grid">
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1"
         title="Video 1" frameborder="0"
         allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-        allowfullscreen style="display:block;">
-      </iframe>
+        allowfullscreen></iframe>
     </div>
-
-    <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-      <iframe width="100%" height="220"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
         title="Video 2" frameborder="0"
         allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-        allowfullscreen style="display:block;">
-      </iframe>
+        allowfullscreen></iframe>
     </div>
-
-    <div style="border-radius:10px;overflow:hidden;border:1px solid var(--border);">
-      <iframe width="100%" height="220"
-        src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3"
         title="Video 3" frameborder="0"
         allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
-        allowfullscreen style="display:block;">
-      </iframe>
+        allowfullscreen></iframe>
     </div>
-
   </div>
 </section>
 
+<!-- PWA DOWNLOAD -->
+<section class="pwa-section alt-bg" id="download">
+  <div class="reveal"><div class="sec-label">Mobile App</div><h2 class="sec-title">Download the App</h2></div>
+  <div class="pwa-inner">
+    <div class="pwa-text reveal">
+      <p>Get the full experience on your phone. The IN16HUB Progressive Web App works on any device — no app store needed. Install it directly from your browser and access it like a native app.</p>
+      <div class="pwa-btns">
+        <a href="https://in16-hub.vercel.app/" target="_blank" class="pwa-btn">
+          <i class="bi bi-phone"></i> Open & Install (Android / iOS)
+        </a>
+        <a href="https://in16-hub.vercel.app/" target="_blank" class="pwa-btn">
+          <i class="bi bi-laptop"></i> Open on Desktop
+        </a>
+      </div>
+      <p class="pwa-install-note" style="margin-top:16px;">
+        On Android: tap the browser menu → "Add to Home Screen".<br>
+        On iOS Safari: tap Share → "Add to Home Screen".<br>
+        On Desktop Chrome: click the install icon (⊕) in the address bar.
+      </p>
+    </div>
+    <div class="pwa-mockup reveal">
+      <div class="pwa-mockup-bar"><span></span><span></span><span></span></div>
+      <div class="pwa-app-name">IN16HUB</div>
+      <div class="pwa-app-desc">Built for Engineers, by Engineers — a centralized study management platform for engineering students.</div>
+      <ul class="pwa-features">
+        <li><i class="bi bi-check2"></i> Study schedule & class management</li>
+        <li><i class="bi bi-check2"></i> Class Rep coordination — Japhet &amp; Venessa</li>
+        <li><i class="bi bi-check2"></i> Works offline as a PWA</li>
+        <li><i class="bi bi-check2"></i> No app store required</li>
+        <li><i class="bi bi-check2"></i> Instant install on any device</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
 <section id="education">
   <div class="reveal"><div class="sec-label">My Background</div><h2 class="sec-title">Education</h2></div>
   <div class="edu-list">
@@ -686,9 +745,31 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
   </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section id="experience" class="alt-bg">
   <div class="reveal"><div class="sec-label">Work History</div><h2 class="sec-title">Experience</h2></div>
   <div class="exp-list">
+    <div class="exp-card reveal">
+      <div class="exp-title-row">
+        <div class="exp-role">Co-founder — TingsTech Technology</div>
+        <div class="exp-period">2024 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Co-founded a digital solutions company building web systems for local businesses and institutions.</li>
+        <li>Lead developer responsible for system architecture, Django backends, and database design.</li>
+        <li>Bridging the gap between technology and underserved markets across Kenya.</li>
+      </ul>
+    </div>
+    <div class="exp-card reveal">
+      <div class="exp-title-row">
+        <div class="exp-role">Co-founder — Sorabingo</div>
+        <div class="exp-period">2024 – Present</div>
+      </div>
+      <ul class="exp-bullets">
+        <li>Co-founded Sorabingo, working on product design and development from the ground up.</li>
+        <li>Responsible for backend architecture, user experience, and scalable system design.</li>
+      </ul>
+    </div>
     <div class="exp-card reveal">
       <div class="exp-title-row">
         <div class="exp-role">Freelance Developer &amp; Student Engineer</div>
@@ -699,23 +780,13 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
         <li>Migrated MS Access databases to web-based systems for remote access.</li>
         <li>Developed and deployed multiple working Django-based web prototypes independently.</li>
         <li>Sold gas cylinders locally, gaining direct experience in sales, customer relations, and product advertising.</li>
-        <li>Active contributor on GitHub with multiple public projects maintained under nabiswa-cmd.</li>
-      </ul>
-    </div>
-    <div class="exp-card reveal">
-      <div class="exp-title-row">
-        <div class="exp-role">Co-founder — TingsTech Technology</div>
-        <div class="exp-period">2024 – Present</div>
-      </div>
-      <ul class="exp-bullets">
-        <li>Co-founded a digital solutions company focused on building web systems for local businesses.</li>
-        <li>Lead developer responsible for system architecture, Django backends, and database design.</li>
-        <li>Bridging the gap between technology and underserved markets across Kenya.</li>
+        <li>Active contributor on GitHub with multiple public projects under nabiswa-cmd.</li>
       </ul>
     </div>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="reveal"><div class="sec-label">Get in Touch</div><h2 class="sec-title">Contact Me</h2></div>
   <div class="contact-grid">
@@ -728,9 +799,7 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
       <div><div class="contact-lbl">Phone</div><div class="contact-val">+254 792 390 205</div></div>
     </a>
     <a href="https://wa.me/254792390205?text=Hello%20Engineer%2C%20I%20am%20interested%20in%20your%20services." target="_blank" class="contact-card reveal">
-      <div class="contact-icon" style="background:rgba(37,211,102,.12);border-color:rgba(37,211,102,.3);">
-        <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i>
-      </div>
+      <div class="contact-icon" style="color:#25D366;"><i class="fa-brands fa-whatsapp"></i></div>
       <div><div class="contact-lbl">WhatsApp</div><div class="contact-val">0792 390 205</div></div>
     </a>
     <a href="https://www.linkedin.com/in/nabiswa-james-830296384/" target="_blank" class="contact-card reveal">
@@ -771,6 +840,7 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
       <a href="#about"><i class="bi bi-person"></i> About</a>
       <a href="#projects"><i class="bi bi-code-slash"></i> Projects</a>
       <a href="#education"><i class="bi bi-mortarboard"></i> Education</a>
+      <a href="#download"><i class="bi bi-phone"></i> Download App</a>
       <a href="#contact"><i class="bi bi-envelope"></i> Contact</a>
     </div>
     <div class="ft-col">
@@ -780,9 +850,9 @@ footer.pf-footer{background:var(--card);border-top:1px solid var(--border);posit
       <a href="https://wa.me/254792390205?text=Hello%20Engineer%2C%20I%20am%20interested." target="_blank">
         <i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> WhatsApp Me
       </a>
-      <a href="https://in16-hub.vercel.app/" target="_blank"><i class="bi bi-globe2"></i>in16hub.com</a>
-      <a href="https://gadgetsoko.com" target="_blank"><i class="bi bi-globe2"></i>gadgetsoko.com</a>
-    
+      <a href="https://in16-hub.vercel.app/" target="_blank"><i class="bi bi-globe2"></i> in16hub</a>
+      <a href="https://gadgetsoko.com" target="_blank"><i class="bi bi-globe2"></i> gadgetsoko.com</a>
+    </div>
   </div>
   <div class="footer-bottom">
     <p>© 2026 Nabiswa James. All Rights Reserved.</p>
@@ -819,7 +889,6 @@ function reveal() {
     if (r.top < t && r.bottom > 0) el.classList.add('show');
     else el.classList.remove('show');
   });
-  // About image separate reveal
   document.querySelectorAll('.about-img').forEach(el => {
     if (el.getBoundingClientRect().top < window.innerHeight - 60) el.classList.add('show');
   });
@@ -827,7 +896,7 @@ function reveal() {
 window.addEventListener('scroll', reveal); reveal();
 
 /* ── ACTIVE NAV ── */
-const sections = document.querySelectorAll('section[id]');
+const sections = document.querySelectorAll('section[id], .pwa-section[id]');
 const navLinks  = document.querySelectorAll('nav a[href^="#"]');
 window.addEventListener('scroll', () => {
   let cur = '';
@@ -843,9 +912,8 @@ function updateIconFilters() {
 }
 updateIconFilters();
 
-/* ── SKILLS MARQUEE BUILDER ── */
+/* ── SKILLS MARQUEE ── */
 const skillGroups = [
-  // track1 — Programming
   [
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">',   label:'Python'},
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">', label:'JavaScript'},
@@ -853,7 +921,6 @@ const skillGroups = [
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">',     label:'CSS3'},
     {icon:'<i class="bi bi-filetype-py" style="color:var(--accent);font-size:22px;"></i>',             label:'Scripting'},
   ],
-  // track2 — Web Dev
   [
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" class="django-img">',   label:'Django'},
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" class="flask-img">',  label:'Flask'},
@@ -861,7 +928,6 @@ const skillGroups = [
     {icon:'<span style="font-size:11px;color:var(--accent);font-family:var(--mono);font-weight:700;">API</span>',        label:'REST APIs'},
     {icon:'<i class="bi bi-phone" style="color:var(--accent);font-size:22px;"></i>',                                     label:'Responsive'},
   ],
-  // track3 — Databases & Tools
   [
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg">', label:'PostgreSQL'},
     {icon:'<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg">',        label:'SQLite'},
@@ -872,7 +938,6 @@ const skillGroups = [
     {icon:'<i class="bi bi-file-earmark-spreadsheet" style="color:#1D6F42;font-size:22px;"></i>',           label:'MS Access'},
     {icon:'<i class="bi bi-file-excel" style="color:#217346;font-size:22px;"></i>',                         label:'MS Excel'},
   ],
-  // track4 — Business
   [
     {icon:'<i class="bi bi-bag-check" style="color:var(--accent);font-size:22px;"></i>',      label:'Sales'},
     {icon:'<i class="bi bi-megaphone" style="color:var(--accent);font-size:22px;"></i>',     label:'Advertising'},
@@ -885,7 +950,6 @@ const skillGroups = [
 skillGroups.forEach((group, i) => {
   const track = document.getElementById('track' + (i+1));
   if (!track) return;
-  // Duplicate for seamless loop
   const items = [...group, ...group, ...group];
   track.innerHTML = items.map(sk => `
     <div class="sk-pill">
@@ -893,7 +957,6 @@ skillGroups.forEach((group, i) => {
       <div class="sk-lbl">${sk.label}</div>
     </div>
   `).join('');
-  // Vary animation speed slightly per row
   const speeds = [28, 22, 32, 18];
   track.style.animationDuration = speeds[i] + 's';
 });
